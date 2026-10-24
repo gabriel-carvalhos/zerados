@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import GameCard from './components/GameCard';
 
 function App() {
   const [games, setGames] = useState([]);
@@ -18,12 +19,12 @@ function App() {
   }, []);
 
   return (
-    <>
-      <h1>zerados</h1>
-      <ul>
-        {games.filter(game => "Jogo" in game).map(game => <li key={game.id}>{game.Jogo}</li>)}
+    <main>
+      <h1 className="text-9xl text-white font-bold tracking-[-12px] leading-24">zerados</h1>
+      <ul className="mt-12 flex justify-center flex-wrap gap-5">
+        {games.filter(game => "Jogo" in game).map(game => <GameCard key={game.Jogo} {...game}/>)}
       </ul>
-    </>
+    </main>
   );
 };
 
